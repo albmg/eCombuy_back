@@ -3,7 +3,8 @@ const { authUser } = require('../utils')
 
 const {
   viewAllProducts,
-  getLatestProducts,
+  getLastProducts,
+  searchProduct,
   getProduct,
   addProduct,
   deleteProduct
@@ -11,7 +12,8 @@ const {
 
 router  
   .get('/', viewAllProducts)
-  .get('/latest', getLatestProducts)
+  .get('/last', getLastProducts)
+  .get('/search', searchProduct)
   .get('/:productId', getProduct)
   .post('/me', authUser, addProduct)
   .delete('/me/:productId', authUser, deleteProduct)

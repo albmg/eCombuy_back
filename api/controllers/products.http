@@ -1,18 +1,23 @@
 @base_url = http://localhost:3000/api/products
 
-@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RhbGJAdGVzdC5jb20iLCJpYXQiOjE1OTYxMzUzOTMsImV4cCI6MTU5NjEzODk5M30.O0isj8XwUkikRH_ieyWo3-gQ7Mf6hvg8DGGzngMsGOs
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RhbGJAdGVzdC5jb20iLCJpYXQiOjE1OTYxNDE5NzAsImV4cCI6MTU5NjE0NTU3MH0.Yb8UTerYMieBREkyOf52gfLD-VHoHedaCpm-PsBiscY
 
 ###
 // view all products
-GET {{base_url}}/
+GET {{base_url}}/ HTTP/1.1
 
 ###
-// view latest products
-GET {{base_url}}/latest
+// view last products
+GET {{base_url}}/last HTTP/1.1
+
+
+###
+//search a product
+GET {{base_url}}/search/?location=Las Palmas de GC HTTP/1.1
 
 ###
 //view a single product
-GET {{base_url}}/5f230ae5fdf3343e163ea664
+GET {{base_url}}/5f230ae5fdf3343e163ea664 HTTP/1.1
 
 ###
 // add a product
@@ -30,5 +35,5 @@ token: {{token}}
 
 ###
 //delete a product
-DELETE {{base_url}}/me/5f23210e8d298056b7f418ba HTTP/1.1
+DELETE {{base_url}}/me/5f23220dc6b798584040bfb5 HTTP/1.1
 token: {{token}}

@@ -1,6 +1,6 @@
 @base_url = http://localhost:3000/api
 
-@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RhbGIyQHRlc3QuY29tIiwiaWF0IjoxNTk2MTMyNjc4fQ.73b84X-wH7B308lTJPwhq1_4x9RnQJv44uGqxPyJK0Y
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RhbGJAdGVzdC5jb20iLCJpYXQiOjE1OTYxNDE5NzAsImV4cCI6MTU5NjE0NTU3MH0.Yb8UTerYMieBREkyOf52gfLD-VHoHedaCpm-PsBiscY
 ###
 // create an account 
 POST {{base_url}}/auth/signup HTTP/1.1

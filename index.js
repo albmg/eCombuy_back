@@ -31,7 +31,7 @@ app
 app.listen(process.env.PORT || 2222, (err) => {
   if (err) { throw new Error(err) } else {
     console.info('>'.repeat(40))
-    console.info('💻  Iddle Server Live')
+    console.info('💻  ecambuy Server Live')
     console.info(`📡  PORT: http://localhost:${process.env.PORT || 2222}`)
     console.info('>'.repeat(40) + '\n')
   }

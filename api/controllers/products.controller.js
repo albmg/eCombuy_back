@@ -21,12 +21,19 @@ function getProduct (req, res) {
 }
 
 
-function getLatestProducts (req, res) {
+function getLastProducts (req, res) {
   ProductModel
     .find()
     .sort({createdDate: 'desc'})
     .populate('owner')
     .then(response => res.json(response))
+    .catch(err => console.error(err))
+}
+
+function searchProduct (req, res) {
+  ProductModel
+    .find(req.query)
+    .then(products => res.json(products))
     .catch(err => console.error(err))
 }
 
@@ -43,7 +50,7 @@ function addProduct (req, res) {
 function deleteProduct (req, res) {
   console.log(req.params)
   ProductModel
-    .remove({ $and: [{ _id: req.params.productId }, { owner: res.locals.user._id }] })
+    .findByIdAndDelete(req.params.productId)
     .then(response => res.json(response))
     .catch(err => console.error(err))
 }
@@ -51,7 +58,8 @@ function deleteProduct (req, res) {
 
 module.exports = {
   viewAllProducts,
-  getLatestProducts,
+  getLastProducts,
+  searchProduct,
   getProduct,  
   addProduct,
   deleteProduct    
