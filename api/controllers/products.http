@@ -9,9 +9,9 @@ Content-Type: application/json
 token: {{token}}
 
 {
-    "name": "orange",
-    "image": "https://www.google.com/imgres?imgurl=https%3A%2F%2Ffotos01.diarioinformacion.com%2F2019%2F01%2F31%2F1024x341%2Ftrucos-elegir-mejores-naranjas.jpg&imgrefurl=https%3A%2F%2Fwww.diarioinformacion.com%2Fsociedad%2F2019%2F01%2F31%2Ftrucos-elegir-mejores-naranjas%2F2113144.html&tbnid=Or5zLe3nVG_xGM&vet=12ahUKEwjqo4-TtPXqAhWD04UKHUEwCIMQMygBegUIARDZAQ..i&docid=pgC6Jteiw2AJ5M&w=1024&h=940&q=naranjas&client=ubuntu&ved=2ahUKEwjqo4-TtPXqAhWD04UKHUEwCIMQMygBegUIARDZAQ",
-    "description": "añadiendo producto",    
-    "price": 2,
+    "name": "apples",
+    "image": "https://estaticos.miarevista.es/media/cache/1140x_thumb/uploads/images/gallery/59144d795cafe812663c986a/razonescomermanzana-int.jpg",
+    "description": "añadiendo producto 2",    
+    "price": 3,
     "location": "Las Palmas de GC"
 }

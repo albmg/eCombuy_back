@@ -2,6 +2,13 @@ const ProductModel = require('../models/products.model')
 
 const mongoose = require('mongoose')
 
+function viewAllProducts (req, res) {
+  ProductModel
+    .find()
+    .then(response => res.json(response))
+    .catch(err => console.error(err))
+}
+
 function addProduct (req, res) {
   ProductModel
     .create(req.body)
@@ -9,6 +16,8 @@ function addProduct (req, res) {
     .catch(err = res.json(err))
 }
 
+
 module.exports = {
-    addProduct
+  viewAllProducts,  
+  addProduct    
 }
