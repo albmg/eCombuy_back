@@ -1,0 +1,17 @@
+@base_url = http://localhost:3000/api/products
+
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RhbGJAdGVzdC5jb20iLCJpYXQiOjE1OTYxMjcxNDl9.KeyLtNLx6oUvwDtXLQBanEGzWtGa_R8o4RA8HbM_kac
+
+###
+// add a product
+POST {{base_url}}/me HTTP/1.1
+Content-Type: application/json
+token: {{token}}
+
+{
+    "name": "orange",
+    "image": "https://www.google.com/imgres?imgurl=https%3A%2F%2Ffotos01.diarioinformacion.com%2F2019%2F01%2F31%2F1024x341%2Ftrucos-elegir-mejores-naranjas.jpg&imgrefurl=https%3A%2F%2Fwww.diarioinformacion.com%2Fsociedad%2F2019%2F01%2F31%2Ftrucos-elegir-mejores-naranjas%2F2113144.html&tbnid=Or5zLe3nVG_xGM&vet=12ahUKEwjqo4-TtPXqAhWD04UKHUEwCIMQMygBegUIARDZAQ..i&docid=pgC6Jteiw2AJ5M&w=1024&h=940&q=naranjas&client=ubuntu&ved=2ahUKEwjqo4-TtPXqAhWD04UKHUEwCIMQMygBegUIARDZAQ",
+    "description": "añadiendo producto",    
+    "price": 2,
+    "location": "Las Palmas de GC"
+}
