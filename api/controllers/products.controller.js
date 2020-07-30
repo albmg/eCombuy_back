@@ -11,6 +11,14 @@ function viewAllProducts (req, res) {
     .catch(err => console.error(err))
 }
 
+function getProduct (req, res) {
+  ProductModel
+    .findById(req.params.productId)
+    .populate('owner')
+    .then(response => res.json(response))
+    .catch(err => console.error(err))
+}
+
 function addProduct (req, res) {
   const info = req.body
   info.owner = res.locals.user._id
@@ -25,13 +33,14 @@ function deleteProduct (req, res) {
   console.log(req.params)
   ProductModel
     .remove({ $and: [{ _id: req.params.productId }, { owner: res.locals.user._id }] })
-    .then(res => res.json(res))
+    .then(response => res.json(response))
     .catch(err => console.error(err))
 }
 
 
 module.exports = {
-  viewAllProducts,  
+  viewAllProducts,
+  getProduct,  
   addProduct,
   deleteProduct    
 }

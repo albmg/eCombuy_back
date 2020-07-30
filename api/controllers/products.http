@@ -3,8 +3,12 @@
 @token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RhbGJAdGVzdC5jb20iLCJpYXQiOjE1OTYxMzUzOTMsImV4cCI6MTU5NjEzODk5M30.O0isj8XwUkikRH_ieyWo3-gQ7Mf6hvg8DGGzngMsGOs
 
 ###
-// view products
+// view all products
 GET {{base_url}}/
+
+###
+//view a single product
+GET {{base_url}}/5f230ae5fdf3343e163ea664
 
 ###
 // add a product
