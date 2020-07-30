@@ -10,10 +10,13 @@ function viewAllProducts (req, res) {
 }
 
 function addProduct (req, res) {
+  const info = req.body
+  info.owner = res.locals.user._id
+  //console.log(info)
   ProductModel
-    .create(req.body)
+    .create(info)
     .then(product => {res.json(product)})
-    .catch(err = res.json(err))
+    .catch(err = console.error(err))
 }
 
 

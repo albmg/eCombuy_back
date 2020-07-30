@@ -1,6 +1,6 @@
 @base_url = http://localhost:3000/api/products
 
-@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RhbGJAdGVzdC5jb20iLCJpYXQiOjE1OTYxMjcxNDl9.KeyLtNLx6oUvwDtXLQBanEGzWtGa_R8o4RA8HbM_kac
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RhbGIyQHRlc3QuY29tIiwiaWF0IjoxNTk2MTMyNjc4fQ.73b84X-wH7B308lTJPwhq1_4x9RnQJv44uGqxPyJK0Y
 
 ###
 // add a product
@@ -9,9 +9,9 @@ Content-Type: application/json
 token: {{token}}
 
 {
-    "name": "apples",
-    "image": "https://estaticos.miarevista.es/media/cache/1140x_thumb/uploads/images/gallery/59144d795cafe812663c986a/razonescomermanzana-int.jpg",
-    "description": "añadiendo producto 2",    
-    "price": 3,
+    "name": "strawberries",
+    "image": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.elespanol.com%2Fcocinillas%2Frecetas%2Fsaludables%2F20140218%2Fbeneficios-fresas%2F1000009049107_30.html&psig=AOvVaw2KU9_H4T7SYXIEDov9RbQr&ust=1596219116087000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCPDL893J9eoCFQAAAAAdAAAAABAD",
+    "description": "añadiendo producto Fresas",    
+    "price": 5,
     "location": "Las Palmas de GC"
 }
