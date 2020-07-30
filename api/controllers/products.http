@@ -1,6 +1,10 @@
 @base_url = http://localhost:3000/api/products
 
-@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RhbGIyQHRlc3QuY29tIiwiaWF0IjoxNTk2MTMyNjc4fQ.73b84X-wH7B308lTJPwhq1_4x9RnQJv44uGqxPyJK0Y
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RhbGJAdGVzdC5jb20iLCJpYXQiOjE1OTYxMzUzOTMsImV4cCI6MTU5NjEzODk5M30.O0isj8XwUkikRH_ieyWo3-gQ7Mf6hvg8DGGzngMsGOs
+
+###
+// view products
+GET {{base_url}}/
 
 ###
 // add a product
@@ -9,9 +13,14 @@ Content-Type: application/json
 token: {{token}}
 
 {
-    "name": "strawberries",
+    "name": "probando borrar",
     "image": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.elespanol.com%2Fcocinillas%2Frecetas%2Fsaludables%2F20140218%2Fbeneficios-fresas%2F1000009049107_30.html&psig=AOvVaw2KU9_H4T7SYXIEDov9RbQr&ust=1596219116087000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCPDL893J9eoCFQAAAAAdAAAAABAD",
-    "description": "añadiendo producto Fresas",    
+    "description": "añadiendo producto a borrar",    
     "price": 5,
     "location": "Las Palmas de GC"
 }
+
+###
+//delete a product
+DELETE {{base_url}}/me/5f23210e8d298056b7f418ba HTTP/1.1
+token: {{token}}
