@@ -20,11 +20,12 @@ const productSchema = new mongoose.Schema({
     ref: "user"
   },
   createdDate: {
-      type: Date,
-      default: Date.now()
+    type: Date,
+    default: Date.now()
   },
   price: {
-    type: Number
+    type: Number,
+    default: 0
   },
   location: {
     type: String,
