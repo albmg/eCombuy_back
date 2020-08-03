@@ -1,6 +1,6 @@
 @base_url = http://localhost:3000/api/products
 
-@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RhbGJAdGVzdC5jb20iLCJpYXQiOjE1OTYxNDE5NzAsImV4cCI6MTU5NjE0NTU3MH0.Yb8UTerYMieBREkyOf52gfLD-VHoHedaCpm-PsBiscY
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RhbGIyQHRlc3QuY29tIiwiaWF0IjoxNTk2NDIwNzM5LCJleHAiOjE1OTY0MjQzMzl9.MCEm8EiOYRaTPFq9zYE3J5k9pmakm-_NwftudSFNMZk
 
 ###
 // view all products
@@ -13,7 +13,7 @@ GET {{base_url}}/last HTTP/1.1
 
 ###
 //search a product
-GET {{base_url}}/search/?location=Las Palmas de GC HTTP/1.1
+GET {{base_url}}/search/?name=NARANJAS HTTP/1.1
 
 ###
 //view a single product
@@ -26,10 +26,10 @@ Content-Type: application/json
 token: {{token}}
 
 {
-    "name": "probando borrar",
-    "image": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.elespanol.com%2Fcocinillas%2Frecetas%2Fsaludables%2F20140218%2Fbeneficios-fresas%2F1000009049107_30.html&psig=AOvVaw2KU9_H4T7SYXIEDov9RbQr&ust=1596219116087000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCPDL893J9eoCFQAAAAAdAAAAABAD",
-    "description": "añadiendo producto a borrar",    
-    "price": 5,
+    "name": "naranjas mandarinas",
+    "image": "https://www.naranjaslamotilla.com/wp-content/uploads/2017/10/mandarinas-img-1472.jpg",
+    "description": "Mandarina ecológica de Valleseco",
+    "price": 2,
     "location": "Las Palmas de GC"
 }
 

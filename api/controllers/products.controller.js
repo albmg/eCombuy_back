@@ -33,6 +33,7 @@ function getLastProducts (req, res) {
 function searchProduct (req, res) {
   ProductModel
     .find(req.query)
+    .populate('owner')
     .then(products => res.json(products))
     .catch(err => console.error(err))
 }
@@ -40,7 +41,6 @@ function searchProduct (req, res) {
 function addProduct (req, res) {
   const info = req.body
   info.owner = res.locals.user._id
-  //console.log(info)
   ProductModel
     .create(info)
     .then(product => res.json(product))
@@ -60,7 +60,7 @@ module.exports = {
   viewAllProducts,
   getLastProducts,
   searchProduct,
-  getProduct,  
+  getProduct,
   addProduct,
-  deleteProduct    
+  deleteProduct
 }

@@ -4,14 +4,14 @@ const productSchema = new mongoose.Schema({
   name: {
     type: String,
     required: [true, "Name is required"]
-  }, 
+  },
   image: {
     type: String,
     required: [true, "Image is required"]
   },
   description: {
     type: String,
-    axlength: [325, "max character length allowed is 325"],
+    maxlength: [325, "max character length allowed is 325"],
     minlength: [1, "min character length allowed is 1"],
     required: [true, "Description is required"]
   },
@@ -19,15 +19,16 @@ const productSchema = new mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: "user"
   },
-  createdDate: {    
+  createdDate: {
       type: Date,
-      default: Date.now()    
+      default: Date.now()
   },
   price: {
     type: Number
   },
   location: {
-    type: String
+    type: String,
+    required: [true, "Location is required"]
   }
 })
 
