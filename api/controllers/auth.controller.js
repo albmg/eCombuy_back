@@ -36,7 +36,7 @@ function logIn (req, res) {
 }
 
 function myId (req, res)  {
-    res.json({ id: res.locals.user._id })
+  res.json({ id: res.locals.user._id.toString() })
 }
 
 module.exports = { signUp, logIn, myId }
