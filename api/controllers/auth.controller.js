@@ -2,7 +2,7 @@ const UserModel = require('../models/users.model')
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
 
-function signUp (req, res) {
+function signup (req, res) {
   const hashedPassword = bcrypt.hashSync(req.body.user_password, 10)
   UserModel
     .create({
@@ -18,7 +18,7 @@ function signUp (req, res) {
     .catch(error => res.status(403).json({ error: error }))
 }
 
-function logIn (req, res) {
+function login (req, res) {
   UserModel
     .findOne({ email: req.body.user_email })
     .then(user => {
@@ -35,8 +35,9 @@ function logIn (req, res) {
     .catch(error => res.status(403).json({ error: error.errmsg }))
 }
 
-function myId (req, res)  {
-  res.json({ id: res.locals.user._id.toString() })
+function whoami (req, res)  {
+  res.json(res.locals.user)
+  //res.json({id: res.locals.user.toString()})
 }
 
-module.exports = { signUp, logIn, myId }
+module.exports = { signup, login, whoami }

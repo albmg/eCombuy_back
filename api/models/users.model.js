@@ -3,7 +3,7 @@ const mongoose = require('mongoose')
 const userSchema = new mongoose.Schema({
   username: {
     type: String,
-    unique: [true, 'username already exists']    
+    unique: [true, 'username already exists']
   },
   email: {
     type: String,
@@ -15,12 +15,16 @@ const userSchema = new mongoose.Schema({
   },
   password: {
     type: String,
-    required: [true, 'Password is required']    
+    required: [true, 'Password is required']
   },
   signUpDate: {
     type: Date,
     default: Date.now()
-  }
+  },
+  productsCreated: [{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'product'
+  }]
 })
 
 const userModel = mongoose.model('user', userSchema)

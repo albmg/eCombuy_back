@@ -1,6 +1,6 @@
 @base_url = http://localhost:3000/api/products
 
-@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RhbGIyQHRlc3QuY29tIiwiaWF0IjoxNTk2NDIwNzM5LCJleHAiOjE1OTY0MjQzMzl9.MCEm8EiOYRaTPFq9zYE3J5k9pmakm-_NwftudSFNMZk
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RhbGIyQHRlc3QuY29tIiwiaWF0IjoxNTk2NTQ3ODM2LCJleHAiOjE1OTY1NTE0MzZ9.1aTzjK48MpXqMswECScLkS7CZQAbIbgwAaMMEUwrVeo
 
 ###
 // view all products
@@ -26,11 +26,11 @@ Content-Type: application/json
 token: {{token}}
 
 {
-    "name": "naranjas mandarinas",
-    "image": "https://www.naranjaslamotilla.com/wp-content/uploads/2017/10/mandarinas-img-1472.jpg",
-    "description": "Mandarina ecológica de Valleseco",
-    "price": 2,
-    "location": "Las Palmas de GC"
+    "name": "probando",
+    "image": "por ahora no",
+    "description": "pruebita",
+    "price": 1,
+    "location": "no importa"
 }
 
 ###

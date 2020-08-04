@@ -2,14 +2,14 @@ const router = require('express').Router()
 const { authUser } = require('../utils')
 
 const {
-  signUp,
-  logIn,
-  myId
+  signup,
+  login,
+  whoami
 } = require('../controllers/auth.controller')
 
 router
-  .get('/me', authUser, myId)
-  .post('/signup', signUp)
-  .post('/login', logIn)
+  .get('/me', authUser, whoami)
+  .post('/signup', signup)
+  .post('/login', login)
 
 module.exports = router

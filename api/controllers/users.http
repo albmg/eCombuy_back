@@ -1,6 +1,6 @@
 @base_url = http://localhost:3000/api
 
-@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RhbGIyQHRlc3QuY29tIiwiaWF0IjoxNTk2NDIwNzM5LCJleHAiOjE1OTY0MjQzMzl9.MCEm8EiOYRaTPFq9zYE3J5k9pmakm-_NwftudSFNMZk
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RhbGIyQHRlc3QuY29tIiwiaWF0IjoxNTk2NTQ3NzM1LCJleHAiOjE1OTY1NTEzMzV9.n5b_ytnI2B_N1qTzhBJXrrLfMuBQy-BnUKCTkhEDGs8
 ###
 // create an account
 POST {{base_url}}/auth/signup HTTP/1.1
@@ -23,5 +23,12 @@ Content-Type: application/json
 }
 
 ###
+// whoami
 GET {{base_url}}/auth/me HTTP/1.1
+token: {{token}}
+
+
+###
+// view profile
+GET {{base_url}}/users/me HTTP/1.1
 token: {{token}}

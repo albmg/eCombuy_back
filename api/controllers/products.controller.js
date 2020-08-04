@@ -1,8 +1,9 @@
 const ProductModel = require('../models/products.model')
 const UserModel = require('../models/users.model')
-
 const mongoose = require('mongoose')
-const { response } = require('express')
+
+//const { response } = require('express')
+//const { find } = require('../models/users.model')
 
 function viewAllProducts (req, res) {
   ProductModel
@@ -25,6 +26,7 @@ function getLastProducts (req, res) {
   ProductModel
     .find()
     .sort({createdDate: 'desc'})
+    .limit(5)
     .populate('owner')
     .then(response => res.json(response))
     .catch(err => console.error(err))
@@ -43,14 +45,22 @@ function addProduct (req, res) {
   info.owner = res.locals.user._id
   ProductModel
     .create(info)
-    .then(product => res.json(product))
+    .then(product => {
+      UserModel
+        .findById(info.owner)
+        .then(response => {
+          response.productsCreated.push(product._id)
+          response.save()
+        })
+        .catch(err => console.error(err))
+      res.json(product)
+    })
     .catch(err = console.error(err))
 }
 
 function deleteProduct (req, res) {
-  console.log(req.params)
   ProductModel
-    .findByIdAndDelete(req.params.productId)
+    .remove({ $and: [{ _id: req.params.productId }, { owner: res.locals.user._id }] })
     .then(response => res.json(response))
     .catch(err => console.error(err))
 }
