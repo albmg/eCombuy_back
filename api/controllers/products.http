@@ -1,6 +1,6 @@
 @base_url = http://localhost:3000/api/products
 
-@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RhbGIyQHRlc3QuY29tIiwiaWF0IjoxNTk2NTQ3ODM2LCJleHAiOjE1OTY1NTE0MzZ9.1aTzjK48MpXqMswECScLkS7CZQAbIbgwAaMMEUwrVeo
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RhbGIyQHRlc3QuY29tIiwiaWF0IjoxNTk2NTYyMjcxLCJleHAiOjE1OTY1NjU4NzF9.WnOQxVCdYhrwf3eu6kfmII5qVbZRM-3usdfbDEEHdSI
 
 ###
 // view all products
@@ -32,6 +32,21 @@ token: {{token}}
     "price": 1,
     "location": "no importa"
 }
+
+###
+//update a product
+PUT {{base_url}}/me/5f28a2ae50bb03543194d125
+Content-Type: application/json
+token: {{token}}
+
+{
+    "name": "cambiando nombre a product",
+    "image": "ahora no",
+    "description": "prueba actualizando producto",
+    "location": "igual"
+}
+
+
 
 ###
 //delete a product

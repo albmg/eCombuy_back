@@ -7,15 +7,17 @@ const {
   searchProduct,
   getProduct,
   addProduct,
+  updateProduct,
   deleteProduct
 }  = require('../controllers/products.controller')
 
-router  
+router
   .get('/', viewAllProducts)
   .get('/last', getLastProducts)
   .get('/search', searchProduct)
   .get('/:productId', getProduct)
   .post('/me', authUser, addProduct)
+  .put('/me/:productId', authUser, updateProduct)
   .delete('/me/:productId', authUser, deleteProduct)
 
 

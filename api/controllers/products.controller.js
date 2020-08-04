@@ -58,6 +58,13 @@ function addProduct (req, res) {
     .catch(err = console.error(err))
 }
 
+function updateProduct (req, res) {
+  ProductModel
+    .update({ $and: [{ _id: req.params.productId }, { owner: res.locals.user._id }] }, req.body, { new: true })
+    .then(product => res.json(product))
+    .catch(err => console.error(err))
+}
+
 function deleteProduct (req, res) {
   ProductModel
     .remove({ $and: [{ _id: req.params.productId }, { owner: res.locals.user._id }] })
@@ -72,5 +79,6 @@ module.exports = {
   searchProduct,
   getProduct,
   addProduct,
+  updateProduct,
   deleteProduct
 }
