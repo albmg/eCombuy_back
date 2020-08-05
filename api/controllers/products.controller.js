@@ -55,7 +55,7 @@ function addProduct (req, res) {
         .catch(err => console.error(err))
       res.json(product)
     })
-    .catch(err = console.error(err))
+    .catch(err => console.error(err))
 }
 
 function updateProduct (req, res) {

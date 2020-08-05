@@ -21,6 +21,7 @@ function signup (req, res) {
 function login (req, res) {
   UserModel
     .findOne({ email: req.body.user_email })
+    .select('+password')
     .then(user => {
       if (!user) { res.json({ error: 'Your email and/or password are incorrect!' }) } else {
         if (bcrypt.compareSync(req.body.user_password, user.password)) {
