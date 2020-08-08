@@ -22,6 +22,9 @@ const userSchema = new mongoose.Schema({
     type: Date,
     default: Date.now()
   },
+  photo: {
+    type: String
+  },
   productsCreated: [{
     type: mongoose.Schema.Types.ObjectId,
     ref: 'product'

@@ -11,6 +11,17 @@ function getProfile (req, res) {
     .catch(err => console.error(err))
 }
 
+function addPhotoProfile(req, res) {
+  UserModel
+    .findByIdAndUpdate(res.locals.user._id, req.body, { new: true })
+    .then(response => {
+      res.json(response)
+      console.log(response)
+     })
+    .catch(err => res.json(err))
+}
+
 module.exports = {
-  getProfile
+  getProfile,
+  addPhotoProfile
 }
