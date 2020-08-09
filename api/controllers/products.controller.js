@@ -1,6 +1,7 @@
 const ProductModel = require('../models/products.model')
 const UserModel = require('../models/users.model')
 const mongoose = require('mongoose')
+const { findById } = require('../models/products.model')
 
 //const { response } = require('express')
 //const { find } = require('../models/users.model')
@@ -12,15 +13,6 @@ function viewAllProducts (req, res) {
     .then(response => res.json(response))
     .catch(err => console.error(err))
 }
-
-function getProduct (req, res) {
-  ProductModel
-    .findById(req.params.productId)
-    .populate('owner')
-    .then(response => res.json(response))
-    .catch(err => console.error(err))
-}
-
 
 function getLastProducts (req, res) {
   ProductModel
@@ -40,6 +32,22 @@ function searchProduct (req, res) {
     .catch(err => console.error(err))
 }
 
+function getProduct (req, res) {
+  ProductModel
+    .findById(req.params.productId)
+    .populate('owner')
+    .then(response => res.json(response))
+    .catch(err => console.error(err))
+}
+
+function viewChatMessagees (req, res) {
+  ProductModel
+    .findById(req.params.productId)
+    .populate('messages.userId')
+    .then(response => res.json(response.messages))
+    .catch(err => console.error(err))
+}
+
 function addProduct (req, res) {
   const info = req.body
   info.owner = res.locals.user._id
@@ -54,6 +62,24 @@ function addProduct (req, res) {
         })
         .catch(err => console.error(err))
       res.json(product)
+    })
+    .catch(err => console.error(err))
+}
+
+
+function addMessageToChat (req, res) {
+  const info = {
+    userId: res.locals.user._id,
+    text: req.body.text
+  }
+  console.log(info)
+  ProductModel
+    .findById(req.params.productId)
+    .then(response => {
+      response.messages.push(info)
+      response.save()
+        .then(message => { res.json(message)})
+        .catch(err => console.error(err))
     })
     .catch(err => console.error(err))
 }
@@ -78,7 +104,9 @@ module.exports = {
   getLastProducts,
   searchProduct,
   getProduct,
+  viewChatMessagees,
   addProduct,
+  addMessageToChat,
   updateProduct,
   deleteProduct
 }

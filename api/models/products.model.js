@@ -1,5 +1,21 @@
 const mongoose = require('mongoose')
 
+const messageSchema = new mongoose.Schema({
+  userId: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'user'
+  },
+  text: {
+    type: String,
+    maxlength: [325, 'max character length allowed is 325'],
+    minlength: [1, 'min character length allowed is 1']
+  },
+  date: {
+    type: Date,
+    default: Date.now()
+  }
+})
+
 const productSchema = new mongoose.Schema({
   name: {
     type: String,
@@ -30,7 +46,8 @@ const productSchema = new mongoose.Schema({
   location: {
     type: String,
     required: [true, "Location is required"]
-  }
+  },
+  messages: [messageSchema]
 })
 
 const productModel = mongoose.model('product', productSchema)
