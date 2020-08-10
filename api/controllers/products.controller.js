@@ -92,6 +92,22 @@ function updateProduct (req, res) {
     .catch(err => console.error(err))
 }
 
+function editChatMessage (req, res) {
+  ProductModel
+    .findById(req.params.productId)
+    .then(product => {
+      product.messages.forEach(message => {
+        if (message._id.toString() === req.params.messageId && message.userId.toString() === res.locals.user._id.toString()) {
+          message.text = req.body.text
+        }
+      })
+      product.save()
+        .then(response => res.json(response))
+        .catch(err => console.error(err))
+    })
+    .catch(err => console.error(err))
+}
+
 function deleteProduct (req, res) {
   ProductModel
     .remove({ $and: [{ _id: req.params.productId }, { owner: res.locals.user._id }] })
@@ -100,7 +116,7 @@ function deleteProduct (req, res) {
 }
 
 
-function deleteMessageChat (req, res) {
+function deleteChatMessage (req, res) {
   ProductModel
     .findByIdAndUpdate(req.params.productId, {
       $pull: {
@@ -120,6 +136,7 @@ module.exports = {
   addProduct,
   addMessageToChat,
   updateProduct,
+  editChatMessage,
   deleteProduct,
-  deleteMessageChat
+  deleteChatMessage
 }

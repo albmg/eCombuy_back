@@ -10,8 +10,9 @@ const {
   addProduct,
   addMessageToChat,
   updateProduct,
+  editChatMessage,
   deleteProduct,
-  deleteMessageChat
+  deleteChatMessage
 }  = require('../controllers/products.controller')
 
 router
@@ -23,8 +24,9 @@ router
   .post('/me', authUser, addProduct)
   .post('/me/:productId/messages', authUser, addMessageToChat)
   .put('/me/:productId', authUser, updateProduct)
+  .put('/me/:productId/messages/:messageId', authUser, editChatMessage)
   .delete('/me/:productId', authUser, deleteProduct)
-  .delete('/me/:productId/messages/:messageId', authUser, deleteMessageChat)
+  .delete('/me/:productId/messages/:messageId', authUser, deleteChatMessage)
 
 
 module.exports = router
