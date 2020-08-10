@@ -2,6 +2,7 @@ const ProductModel = require('../models/products.model')
 const UserModel = require('../models/users.model')
 const mongoose = require('mongoose')
 const { findById } = require('../models/products.model')
+const { response } = require('express')
 
 //const { response } = require('express')
 //const { find } = require('../models/users.model')
@@ -99,6 +100,17 @@ function deleteProduct (req, res) {
 }
 
 
+function deleteMessageChat (req, res) {
+  ProductModel
+    .findByIdAndUpdate(req.params.productId, {
+      $pull: {
+        messages: { $and: [{ _id: req.params.messageId }, { userId: res.locals.user._id }]}
+      }
+    }, {new: true})
+    .then(response => res.json(response))
+    .catch(err => console.error(err))
+}
+
 module.exports = {
   viewAllProducts,
   getLastProducts,
@@ -108,5 +120,6 @@ module.exports = {
   addProduct,
   addMessageToChat,
   updateProduct,
-  deleteProduct
+  deleteProduct,
+  deleteMessageChat
 }
