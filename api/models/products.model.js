@@ -5,6 +5,10 @@ const messageSchema = new mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: 'user'
   },
+  toUserId: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'user'
+  },
   text: {
     type: String,
     maxlength: [325, 'max character length allowed is 325'],

@@ -45,7 +45,12 @@ function viewChatMessagees (req, res) {
   ProductModel
     .findById(req.params.productId)
     .populate('messages.userId')
-    .then(response => res.json(response.messages))
+    .populate('messages.toUserId')
+    .then(response => {
+      console.log(response)
+      res.json(response.messages.filter(item => [item.userId === res.locals.userId || item.toUserId === res.locals.userId]))
+      //res.json(response.messages)
+    })
     .catch(err => console.error(err))
 }
 
@@ -71,6 +76,7 @@ function addProduct (req, res) {
 function addMessageToChat (req, res) {
   const info = {
     userId: res.locals.user._id,
+    toUserId: req.body.toUserId,
     text: req.body.text
   }
   console.log(info)
