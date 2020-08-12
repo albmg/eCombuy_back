@@ -8,6 +8,7 @@ function getProfile (req, res) {
   UserModel
     .findById(res.locals.user._id)
     .populate('productsCreated')
+    .populate('favouriteProducts')
     .then(response => res.json(response))
     .catch(err => console.error(err))
 }
@@ -40,6 +41,8 @@ function addFavouriteProduct(req, res) {
     })
     .catch(err => console.error(err))
 }
+
+
 
 module.exports = {
   getProfile,
