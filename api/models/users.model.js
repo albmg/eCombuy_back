@@ -28,6 +28,10 @@ const userSchema = new mongoose.Schema({
   productsCreated: [{
     type: mongoose.Schema.Types.ObjectId,
     ref: 'product'
+  }],
+  favouriteProducts: [{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'product'
   }]
 })
 

@@ -4,9 +4,6 @@ const mongoose = require('mongoose')
 const { findById } = require('../models/products.model')
 const { response } = require('express')
 
-//const { response } = require('express')
-//const { find } = require('../models/users.model')
-
 function viewAllProducts (req, res) {
   ProductModel
     .find()
@@ -49,7 +46,6 @@ function viewChatMessagees (req, res) {
     .then(response => {
       console.log(response)
       res.json(response.messages.filter(item => [item.userId === res.locals.userId || item.toUserId === res.locals.userId]))
-      //res.json(response.messages)
     })
     .catch(err => console.error(err))
 }
@@ -71,7 +67,6 @@ function addProduct (req, res) {
     })
     .catch(err => console.error(err))
 }
-
 
 function addMessageToChat (req, res) {
   const info = {

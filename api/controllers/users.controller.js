@@ -1,6 +1,7 @@
 const UserModel = require('../models/users.model')
 
 const mongoose = require('mongoose')
+const { response } = require('express')
 
 
 function getProfile (req, res) {
@@ -21,7 +22,23 @@ function addPhotoProfile(req, res) {
     .catch(err => res.json(err))
 }
 
+function addFavouriteProduct(req, res) {
+  UserModel
+    .findById(res.locals.user)
+    .then(response => {
+      response.favouriteProducts.push(req.body.product)
+      response
+        .save()
+        .then(pro => {
+          res.json(pro)
+        })
+        .catch(err => console.error(err))
+    })
+    .catch(err => console.error(err))
+}
+
 module.exports = {
   getProfile,
-  addPhotoProfile
+  addPhotoProfile,
+  addFavouriteProduct
 }
