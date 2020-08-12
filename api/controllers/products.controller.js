@@ -45,7 +45,9 @@ function viewChatMessagees (req, res) {
     .populate('messages.toUserId')
     .then(response => {
       console.log(response)
-      res.json(response.messages.filter(item => [item.userId === res.locals.userId || item.toUserId === res.locals.userId]))
+      res.json(response.messages.filter(item =>
+        [item.userId === res.locals.userId ||
+          item.toUserId === res.locals.userId]))
     })
     .catch(err => console.error(err))
 }
@@ -67,6 +69,8 @@ function addProduct (req, res) {
     })
     .catch(err => console.error(err))
 }
+
+
 
 function addMessageToChat (req, res) {
   const info = {
@@ -121,7 +125,8 @@ function deleteChatMessage (req, res) {
   ProductModel
     .findByIdAndUpdate(req.params.productId, {
       $pull: {
-        messages: { $and: [{ _id: req.params.messageId }, { userId: res.locals.user._id }]}
+        messages: { $and: [{ _id: req.params.messageId },
+          { userId: res.locals.user._id }]}
       }
     }, {new: true})
     .then(response => res.json(response))
