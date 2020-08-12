@@ -24,13 +24,17 @@ function addPhotoProfile(req, res) {
 
 function addFavouriteProduct(req, res) {
   UserModel
-    .findById(res.locals.user)
-    .then(response => {
-      response.favouriteProducts.push(req.body.product)
-      response
+    .findById(res.locals.user._id)
+    .then(user => {
+      if (user.favouriteProducts.includes(req.body.productId)){
+        user.favouriteProducts.remove(req.body.productId)
+      } else {
+        user.favouriteProducts.push(req.body.productId)
+      }
+      user
         .save()
-        .then(pro => {
-          res.json(pro)
+        .then(response => {
+          res.json(response)
         })
         .catch(err => console.error(err))
     })
