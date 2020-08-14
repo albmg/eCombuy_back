@@ -44,7 +44,7 @@ const productSchema = new mongoose.Schema({
     default: new Date()
   },
   price: {
-    type: Number,
+    type: String,
     default: 0
   },
   location: {
