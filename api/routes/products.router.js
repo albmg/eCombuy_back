@@ -18,7 +18,7 @@ const {
 router
   .get('/', viewAllProducts)
   .get('/last', getLastProducts)
-  .get('/search', searchProduct)
+  .get('/search/:term', searchProduct)
   .get('/:productId', getProduct)
   .get('/:productId/messages', viewChatMessagees)
   .post('/me', authUser, addProduct)

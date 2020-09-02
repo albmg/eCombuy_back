@@ -23,8 +23,9 @@ function getLastProducts (req, res) {
 }
 
 function searchProduct (req, res) {
+  const q = req.params.term
   ProductModel
-    .find(req.query)
+    .find({location: {$regex: new RegExp(q)}})
     .populate('owner')
     .then(products => res.json(products))
     .catch(err => console.error(err))
