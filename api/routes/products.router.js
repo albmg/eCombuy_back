@@ -5,6 +5,7 @@ const {
   viewAllProducts,
   getLastProducts,
   searchProduct,
+  searchProductByIsland,
   getProduct,
   viewChatMessagees,
   addProduct,
@@ -18,6 +19,7 @@ const {
 router
   .get('/', viewAllProducts)
   .get('/last', getLastProducts)
+  .get('/island/:island', searchProduct)
   .get('/search/:term', searchProduct)
   .get('/:productId', getProduct)
   .get('/:productId/messages', viewChatMessagees)

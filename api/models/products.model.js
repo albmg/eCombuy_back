@@ -47,9 +47,23 @@ const productSchema = new mongoose.Schema({
     type: String,
     default: 0
   },
-  location: {
-    type: String,
-    required: [true, "Location is required"]
+  //locations: [locationSchema]
+  //,
+  //municipality: {
+  //  type: String,
+  //  required: [true, "Location is required"]
+  //},
+  //island: {
+  //  type: String,
+  //  required: [true, "Island is required"]
+  //},
+  municipality: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "location"
+  },
+  island: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "isla"
   },
   messages: [messageSchema]
 })

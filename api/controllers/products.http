@@ -1,6 +1,6 @@
 @base_url = http://localhost:3000/api/products
 
-@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RhbGJAdGVzdC5jb20iLCJpYXQiOjE1OTcxOTk5NDAsImV4cCI6MTU5NzIwMzU0MH0.pK2Qp9JwhOuboW5M15SdntD0RCDxxxV52iqEdrLDD-M
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RhbGJAdGVzdC5jb20iLCJpYXQiOjE2MDAxODkyMzUsImV4cCI6MTYwMDE5MjgzNX0.MduLEvhEjf_obIGNbl7trHAP8qCueKTd9NHL19ZDzdM
 
 ###
 // view all products
@@ -27,11 +27,12 @@ Content-Type: application/json
 token: {{token}}
 
 {
-    "name": "probando",
+    "name": "probando3",
     "image": "por ahora no",
     "description": "pruebita",
     "price": 1,
-    "location": "no importa"
+    "island": "Tenerife",
+    "municipality": "Arona"
 }
 
 ###
@@ -72,3 +73,5 @@ POST {{base_url}}/me/5f321659c781566692a90c6f/favourites HTTP/1.1
 token: {{token}}
 
 
+###
+GET {{base_url}}/island/ HTTP/1.1

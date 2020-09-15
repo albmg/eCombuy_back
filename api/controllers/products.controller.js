@@ -31,6 +31,15 @@ function searchProduct (req, res) {
     .catch(err => console.error(err))
 }
 
+function searchProductByIsland (req, res) {
+  console.log(req.params)
+  ProductModel
+    .find({ island: req.params.island })
+    .populate('owner')
+    .then(response => res.json(response))
+    .catch(err => console.error(err))
+}
+
 function getProduct (req, res) {
   ProductModel
     .findById(req.params.productId)
@@ -138,6 +147,7 @@ module.exports = {
   viewAllProducts,
   getLastProducts,
   searchProduct,
+  searchProductByIsland,
   getProduct,
   viewChatMessagees,
   addProduct,
