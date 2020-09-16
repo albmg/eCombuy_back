@@ -1,5 +1,6 @@
 const ProductModel = require('../models/products.model')
 const UserModel = require('../models/users.model')
+
 const mongoose = require('mongoose')
 const { findById } = require('../models/products.model')
 const { response } = require('express')
@@ -7,7 +8,9 @@ const { response } = require('express')
 function viewAllProducts (req, res) {
   ProductModel
     .find()
-    .populate('owner')
+    //.populate('owner')
+    .populate('islands.name')
+    .populate('municipalities.name')
     .then(response => res.json(response))
     .catch(err => console.error(err))
 }
@@ -32,15 +35,18 @@ function searchProduct (req, res) {
 }
 
 function searchProductByIsland (req, res) {
-  console.log(req.params)
+  console.log(typeof(req.params.islandId))
   ProductModel
-    .find({ island: req.params.island })
+    .find({ productIsland: req.params.islandId })
     .populate('owner')
+    .populate('productIsland')
+    .populate('loc')
     .then(response => res.json(response))
     .catch(err => console.error(err))
 }
 
 function getProduct (req, res) {
+  console.log(typeof(req.params.productId))
   ProductModel
     .findById(req.params.productId)
     .populate('owner')

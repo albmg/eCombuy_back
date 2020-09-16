@@ -57,13 +57,13 @@ const productSchema = new mongoose.Schema({
   //  type: String,
   //  required: [true, "Island is required"]
   //},
-  municipality: {
+  loc: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: "location"
+    ref: "municipalities"
   },
-  island: {
+  productIsland: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: "isla"
+    ref: "islands"
   },
   messages: [messageSchema]
 })

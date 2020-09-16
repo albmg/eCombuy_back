@@ -20,7 +20,7 @@ router
   .get('/', viewAllProducts)
   .get('/last', getLastProducts)
   .get('/island/:island', searchProduct)
-  .get('/search/:term', searchProduct)
+  .get('/islands/:islandId', searchProductByIsland)
   .get('/:productId', getProduct)
   .get('/:productId/messages', viewChatMessagees)
   .post('/me', authUser, addProduct)

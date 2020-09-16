@@ -1,3 +1,6 @@
 @base_url = http://localhost:3000/api
 
 GET {{base_url}}/islands HTTP/1.1
+
+###
+// List products by island

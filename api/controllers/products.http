@@ -1,6 +1,6 @@
 @base_url = http://localhost:3000/api/products
 
-@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RhbGJAdGVzdC5jb20iLCJpYXQiOjE2MDAxODkyMzUsImV4cCI6MTYwMDE5MjgzNX0.MduLEvhEjf_obIGNbl7trHAP8qCueKTd9NHL19ZDzdM
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RhbGJAdGVzdC5jb20iLCJpYXQiOjE2MDAyNjk5MjksImV4cCI6MTYwMDI3MzUyOX0.XIb3zBYm1XM8wXXOcQhduOrDtGj7UuMYJVy785Ocf7s
 
 ###
 // view all products
@@ -31,8 +31,8 @@ token: {{token}}
     "image": "por ahora no",
     "description": "pruebita",
     "price": 1,
-    "island": "Tenerife",
-    "municipality": "Arona"
+    "municipality": "5f61084e6229b51306c2bae6",
+    "island": "5f60fb630ce88185bc1418b1"
 }
 
 ###
@@ -74,4 +74,5 @@ token: {{token}}
 
 
 ###
-GET {{base_url}}/island/ HTTP/1.1
+// List products by island
+GET {{base_url}}/islands/5f60fb630ce88185bc1418b1 HTTP/1.1

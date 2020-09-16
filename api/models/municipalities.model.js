@@ -3,11 +3,11 @@ const mongoose = require('mongoose')
 const municipalitySchema = new mongoose.Schema({
   name: {
     type: String,
-    required: [true, "Muni is required"]
+    required: [true, "Municipality is required"]
   },
-  isla: {
+  islandCode: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: "isla"
+    ref: "islands"
   }
 })
 
