@@ -2,5 +2,4 @@
 
 GET {{base_url}}/islands HTTP/1.1
 
-###
-// List products by island
+
