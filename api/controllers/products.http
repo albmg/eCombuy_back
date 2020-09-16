@@ -76,3 +76,7 @@ token: {{token}}
 ###
 // List products by island
 GET {{base_url}}/islands/5f60fb630ce88185bc1418b1 HTTP/1.1
+
+###
+// List products by municipality
+GET {{base_url}}/municipalities/5f61084e6229b51306c2bae6 HTTP/1.1

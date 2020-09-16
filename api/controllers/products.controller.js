@@ -34,8 +34,8 @@ function searchProduct (req, res) {
     .catch(err => console.error(err))
 }
 
-function searchProductByIsland (req, res) {
-  console.log(typeof(req.params.islandId))
+
+function listProductByIsland (req, res) {
   ProductModel
     .find({ productIsland: req.params.islandId })
     .populate('owner')
@@ -45,8 +45,19 @@ function searchProductByIsland (req, res) {
     .catch(err => console.error(err))
 }
 
+
+function listProductByMunicipality (req, res) {
+  console.log(req.params.municipalityId)
+  ProductModel
+    .find({ loc: req.params.municipalityId })
+    .populate('owner')
+    .populate('productIsland')
+    .populate('loc')
+    .then(response => res.json(response))
+    .catch(err => console.error(err))
+}
+
 function getProduct (req, res) {
-  console.log(typeof(req.params.productId))
   ProductModel
     .findById(req.params.productId)
     .populate('owner')
@@ -153,7 +164,8 @@ module.exports = {
   viewAllProducts,
   getLastProducts,
   searchProduct,
-  searchProductByIsland,
+  listProductByIsland,
+  listProductByMunicipality,
   getProduct,
   viewChatMessagees,
   addProduct,
