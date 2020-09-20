@@ -40,7 +40,7 @@ function listProductByIsland (req, res) {
     .find({ productIsland: req.params.islandId })
     .populate('owner')
     .populate('productIsland')
-    .populate('loc')
+    .populate('location')
     .then(response => res.json(response))
     .catch(err => console.error(err))
 }
@@ -49,10 +49,10 @@ function listProductByIsland (req, res) {
 function listProductByMunicipality (req, res) {
   console.log(req.params.municipalityId)
   ProductModel
-    .find({ loc: req.params.municipalityId })
+    .find({ location: req.params.municipalityId })
     .populate('owner')
     .populate('productIsland')
-    .populate('loc')
+    .populate('location')
     .then(response => res.json(response))
     .catch(err => console.error(err))
 }
@@ -61,6 +61,8 @@ function getProduct (req, res) {
   ProductModel
     .findById(req.params.productId)
     .populate('owner')
+    .populate('productIsland')
+    .populate('location')
     .then(response => res.json(response))
     .catch(err => console.error(err))
 }
