@@ -7,6 +7,7 @@ const {
   searchProduct,
   listProductByIsland,
   listProductByMunicipality,
+  listProductByProcedure,
   getProduct,
   viewChatMessagees,
   addProduct,
@@ -23,6 +24,7 @@ router
   .get('/island/:island', searchProduct)
   .get('/islands/:islandId', listProductByIsland)
   .get('/municipalities/:municipalityId', listProductByMunicipality)
+  .get('/municipalities/:municipalityId/procedures/:procedureId', listProductByProcedure)
   .get('/:productId', getProduct)
   .get('/:productId/messages', viewChatMessagees)
   .post('/me', authUser, addProduct)

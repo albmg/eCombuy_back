@@ -1,6 +1,6 @@
 @base_url = http://localhost:3000/api/products
 
-@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RhbGJAdGVzdC5jb20iLCJpYXQiOjE2MDAyNjk5MjksImV4cCI6MTYwMDI3MzUyOX0.XIb3zBYm1XM8wXXOcQhduOrDtGj7UuMYJVy785Ocf7s
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RhbGJAdGVzdC5jb20iLCJpYXQiOjE2MDI4NjQzOTYsImV4cCI6MTYwMjg2Nzk5Nn0.wgs7yEf8pK3IbOI7b2GZr-mgKoy0U6MpO9Dbt_TFWeI
 
 ###
 // view all products
@@ -17,7 +17,7 @@ GET {{base_url}}/search/Mil HTTP/1.1
 
 ###
 //view a single product
-GET {{base_url}}/5f230ae5fdf3343e163ea664 HTTP/1.1
+GET {{base_url}}/5f85da37d44a9c35062568dc HTTP/1.1
 
 
 ###
@@ -27,12 +27,13 @@ Content-Type: application/json
 token: {{token}}
 
 {
-    "name": "probando3",
+    "name": "probandoTramite con Id",
     "image": "por ahora no",
     "description": "pruebita",
     "price": 1,
-    "municipality": "5f61084e6229b51306c2bae6",
-    "island": "5f60fb630ce88185bc1418b1"
+    "location": "5f61084e6229b51306c2bae6",
+    "productIsland": "5f60fb630ce88185bc1418b1",
+    "procedure": "5f85c10cb8fa909b043a32a4"
 }
 
 ###
@@ -80,3 +81,8 @@ GET {{base_url}}/islands/5f60fb630ce88185bc1418b1 HTTP/1.1
 ###
 // List products by municipality
 GET {{base_url}}/municipalities/5f61084e6229b51306c2bae6 HTTP/1.1
+
+
+###
+// List products by procedure
+GET {{base_url}}/municipalities/5f61084e6229b51306c2bae6/procedures/5f85c12a6b55ed240d5463f9 HTTP/1.1

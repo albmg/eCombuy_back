@@ -43,20 +43,17 @@ const productSchema = new mongoose.Schema({
     type: Date,
     default: new Date()
   },
+  procedure: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "procedures"
+  },
   price: {
     type: String,
     default: 0
   },
-  //locations: [locationSchema]
-  //,
-  //municipality: {
-  //  type: String,
-  //  required: [true, "Location is required"]
-  //},
-  //island: {
-  //  type: String,
-  //  required: [true, "Island is required"]
-  //},
+  more: {
+    type: String,
+  },
   location: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "municipalities"

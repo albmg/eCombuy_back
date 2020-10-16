@@ -21,6 +21,7 @@ function getLastProducts (req, res) {
     .sort({createdDate: 'desc'})
     .limit(5)
     .populate('owner')
+    .populate('productIsland')
     .then(response => res.json(response))
     .catch(err => console.error(err))
 }
@@ -41,6 +42,7 @@ function listProductByIsland (req, res) {
     .populate('owner')
     .populate('productIsland')
     .populate('location')
+    .populate('procedure')
     .then(response => res.json(response))
     .catch(err => console.error(err))
 }
@@ -53,6 +55,19 @@ function listProductByMunicipality (req, res) {
     .populate('owner')
     .populate('productIsland')
     .populate('location')
+    .populate('procedure')
+    .then(response => res.json(response))
+    .catch(err => console.error(err))
+}
+
+function listProductByProcedure (req, res) {
+  console.log(req.params.procedureId)
+  ProductModel
+    .find({ procedure: req.params.procedureId })
+    .populate('owner')
+    .populate('productIsland')
+    .populate('location')
+    .populate('procedure')
     .then(response => res.json(response))
     .catch(err => console.error(err))
 }
@@ -63,6 +78,7 @@ function getProduct (req, res) {
     .populate('owner')
     .populate('productIsland')
     .populate('location')
+    .populate('procedure')
     .then(response => res.json(response))
     .catch(err => console.error(err))
 }
@@ -168,6 +184,7 @@ module.exports = {
   searchProduct,
   listProductByIsland,
   listProductByMunicipality,
+  listProductByProcedure,
   getProduct,
   viewChatMessagees,
   addProduct,
