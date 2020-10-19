@@ -85,4 +85,4 @@ GET {{base_url}}/municipalities/5f61084e6229b51306c2bae6 HTTP/1.1
 
 ###
 // List products by procedure
-GET {{base_url}}/municipalities/5f61084e6229b51306c2bae6/procedures/5f85c12a6b55ed240d5463f9 HTTP/1.1
+GET {{base_url}}/municipalities/5f64dbb8eb0b1a16ef1d5f19/procedures/5f85c12a6b55ed240d5463f9 HTTP/1.1

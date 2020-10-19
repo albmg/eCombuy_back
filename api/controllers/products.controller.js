@@ -62,8 +62,9 @@ function listProductByMunicipality (req, res) {
 
 function listProductByProcedure (req, res) {
   console.log(req.params.procedureId)
+  console.log(req.params.municipalityId)
   ProductModel
-    .find({ procedure: req.params.procedureId })
+    .find({ location: req.params.municipalityId, procedure: req.params.procedureId })
     .populate('owner')
     .populate('productIsland')
     .populate('location')
@@ -89,7 +90,7 @@ function viewChatMessagees (req, res) {
     .populate('messages.userId')
     .populate('messages.toUserId')
     .then(response => {
-      console.log(response)
+      //console.log(response)
       res.json(response.messages.filter(item =>
         [item.userId === res.locals.userId ||
           item.toUserId === res.locals.userId]))
