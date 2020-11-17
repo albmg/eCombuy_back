@@ -22,6 +22,7 @@ function getLastProducts (req, res) {
     .limit(5)
     .populate('owner')
     .populate('productIsland')
+    .populate('location')
     .then(response => res.json(response))
     .catch(err => console.error(err))
 }
